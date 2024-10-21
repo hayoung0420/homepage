@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Pronunciation Level Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+  <style>
+    .zen-kaku-gothic-new-regular {
+      font-family: "Zen Kaku Gothic New", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+          
+    body {
+      font-family:"Zen Kaku Gothic New", sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #4a90e2;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #666;
+    }
+
+    .button-container {
+      margin-top: 30px;
+    }
+
+    .button {
+      background-color: #4a90e2;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .button:hover {
+      background-color: #357abd;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .question-text {
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+
+    audio {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .option {
+      background-color: #e9f0f9;
+      margin-bottom: 10px;
+      padding: 15px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .option:hover {
+      background-color: #d1e4f3;
+    }
+
+    .correct {
+      background-color: green;
+    }
+
+    .incorrect {
+      background-color: red;
+    }
+
+    .level-feedback {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.4em;
+      color: #4a90e2;
+      margin-top: 20px;
+    }
+
+    .audio-button {
+      background-color: #4a90e2;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    .audio-button:hover {
+      background-color: #357abd;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="main-container">
+  <h1>Level Test</h1>
+  <p>This is an English pronunciation level test. Listen to the audio and choose the correct word. You will get feedback after each question.</p>
+  
+  <div class="button-container">
+    <button class="button" id="start-test-button" onclick="startLevelTest()">Start Level Test</button>
+  </div>
+
+  <div id="questions-container" class="hidden"></div>
+  <div id="level-feedback" class="level-feedback hidden"></div>
+  <button class="audio-button hidden" id="audio-translation" onclick="playJapaneseAudio()">日本語で説明を聞く</button>
+  <div class="button-container hidden" id="navigation-buttons">
+    <button class="button" id="word-study-button" onclick="startWordStudy()">Start Word Study</button>
+    <button class="button" onclick="goHome()">Home</button>
+  </div>
+</div>
+
+<script>
+  const questions = [
+    {
+      questionText: 'Which word is correct for the following sound?',
+      audio: 'audio/fan.mp3',
+      options: [
+        { text: 'Fan', correct: true },
+        { text: 'Van', correct: false },
+        { text: 'Fun', correct: false }
+      ]
+    },
+    {
+      questionText: 'Which word matches this pronunciation?',
+      audio: 'audio/thumb.mp3',
+      options: [
+        { text: 'Thumb', correct: true },
+        { text: 'Thump', correct: false },
+        { text: 'Sum', correct: false }
+      ]
+    },
+    {
+      questionText: 'Select the correct word for this sound.',
+      audio: 'audio/fish.mp3',
+      options: [
+        { text: 'Fish', correct: true },
+        { text: 'Wish', correct: false },
+        { text: 'Dish', correct: false }
+      ]
+    },
+    {
+      questionText: 'Which word is correct for this sound?',
+      audio: 'audio/fan.mp3',
+      options: [
+        { text: 'Fan', correct: true },
+        { text: 'Pan', correct: false },
+        { text: 'Man', correct: false }
+      ]
+    },
+    {
+      questionText: 'Identify the correct word.',
+      audio: 'audio/three.mp3',
+      options: [
+        { text: 'Three', correct: true },
+        { text: 'Tree', correct: false },
+        { text: 'Free', correct: false }
+      ]
+    },
+    {
+      questionText: 'Choose the word for this pronunciation.',
+      audio: 'audio/safe.mp3',
+      options: [
+        { text: 'Safe', correct: true },
+        { text: 'Saff', correct: false },
+        { text: 'Sough', correct: false }
+      ]
+    },
+    {
+      questionText: 'Select the word that matches this sound.',
+      audio: 'audio/nice.mp3',
+      options: [
+        { text: 'Nice', correct: true },
+        { text: 'Dice', correct: false },
+        { text: 'Rice', correct: false }
+      ]
+    },
+    {
+      questionText: 'Which word corresponds to this audio?',
+      audio: 'audio/nose.mp3',
+      options: [
+        { text: 'Nose', correct: true },
+        { text: 'Rose', correct: false },
+        { text: 'Pose', correct: false }
+      ]
+    },
+    {
+      questionText: 'Identify the correct sound.',
+      audio: 'audio/five.mp3',
+      options: [
+        { text: 'Five', correct: true },
+        { text: 'Dive', correct: false },
+        { text: 'Hive', correct: false }
+      ]
+    },
+    {
+      questionText: 'Select the word that fits this sound.',
+      audio: 'audio/nut.mp3',
+      options: [
+        { text: 'Nut', correct: true },
+        { text: 'But', correct: false },
+        { text: 'Cut', correct: false }
+      ]
+    }
+  ];
+
+  let currentQuestionIndex = 0;
+  let score = 0;
+
+  function startLevelTest() {
+    document.getElementById('start-test-button').classList.add('hidden');
+    document.getElementById('questions-container').classList.remove('hidden');
+    loadQuestion(currentQuestionIndex);
+  }
+
+  function loadQuestion(index) {
+    const questionContainer = document.getElementById('questions-container');
+    questionContainer.innerHTML = ''; // 이전 질문 초기화
+
+    if (index < questions.length) {
+      const question = questions[index];
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('question');
+
+      const questionTextDiv = document.createElement('div');
+      questionTextDiv.classList.add('question-text');
+      questionTextDiv.textContent = question.questionText;
+      questionDiv.appendChild(questionTextDiv);
+
+      const audio = document.createElement('audio');
+      audio.controls = true;
+      audio.innerHTML = `<source src="${question.audio}" type="audio/mpeg"> Your browser does not support the audio element.`;
+      questionDiv.appendChild(audio);
+
+      const optionsDiv = document.createElement('div');
+      optionsDiv.classList.add('options');
+
+      question.options.forEach(option => {
+        const optionDiv = document.createElement('div');
+        optionDiv.classList.add('option');
+        optionDiv.textContent = option.text;
+        optionDiv.onclick = () => checkAnswer(optionDiv, option.correct);
+        optionsDiv.appendChild(optionDiv);
+      });
+
+      questionDiv.appendChild(optionsDiv);
+      questionContainer.appendChild(questionDiv);
+      questionDiv.style.display = 'block'; // 질문 표시
+    } else {
+      showFeedback();
+    }
+  }
+
+  function checkAnswer(selectedOption, isCorrect) {
+    const feedbackDiv = document.createElement('div');
+    feedbackDiv.classList.add('feedback');
+
+    if (isCorrect) {
+      score++;
+      selectedOption.classList.add('correct');
+    } else {
+      selectedOption.classList.add('incorrect');
+    }
+
+    currentQuestionIndex++;
+    setTimeout(() => {
+      loadQuestion(currentQuestionIndex);
+    }, 1000);
+  }
+
+  function showFeedback() {
+    document.getElementById('questions-container').classList.add('hidden');
+    const feedbackContainer = document.getElementById('level-feedback');
+    feedbackContainer.classList.remove('hidden');
+    feedbackContainer.textContent = `Your score: ${score} out of ${questions.length}`;
+    
+    document.getElementById('navigation-buttons').classList.remove('hidden');
+  }
+
+  function playJapaneseAudio() {
+    const audio = new Audio('audio/japanese_explanation.mp3');
+    audio.play();
+  }
+
+  function startWordStudy() {
+    // Word study page URL
+    window.location.href = './index.wordpronu.html'; // 링크를 해당 홈페이지로 수정
+  }
+  function goHome() {
+    window.location.href = 'home.html'; // 홈 페이지 URL 수정
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Pronunciation Level Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+  <style>
+    .zen-kaku-gothic-new-regular {
+      font-family: "Zen Kaku Gothic New", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 600px; /* 박스 크기 재조정 */
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #4a90e2;
+    }
+
+    .button-container {
+      margin-top: 30px;
+    }
+
+    .button {
+      background-color: #4a90e2;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .button:hover {
+      background-color: #357abd;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    audio {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .option {
+      background-color: #e9f0f9;
+      margin-bottom: 10px;
+      padding: 15px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .option:hover {
+      background-color: #d1e4f3;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+
+    .level-feedback {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.4em;
+      color: #4a90e2;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="main-container">
+  <h1>Level Test</h1>
+  
+  <div class="button-container">
+    <button class="button" id="start-test-button" onclick="startLevelTest()">Start Level Test</button>
+  </div>
+
+  <div id="questions-container" class="hidden"></div>
+  <div id="level-feedback" class="level-feedback hidden"></div>
+  <div class="button-container hidden" id="navigation-buttons">
+    <button class="button" id="word-study-button" onclick="startWordStudy()">Start Word Study</button>
+    <button class="button" onclick="goHome()">Home</button>
+  </div>
+</div>
+
+<script>
+  const questions = [
+    {
+      audio: 'audio/fan.mp3',
+      options: [
+        { text: 'Fan', correct: true },
+        { text: 'Van', correct: false },
+        { text: 'Fun', correct: false }
+      ]
+    },
+    {
+      audio: 'audio/thumb.mp3',
+      options: [
+        { text: 'Thumb', correct: true },
+        { text: 'Thump', correct: false },
+        { text: 'Sum', correct: false }
+      ]
+    },
+    {
+      audio: 'audio/nice.mp3',
+      options: [
+        { text: 'Nice', correct: true },
+        { text: 'Rice', correct: false },
+        { text: 'Mice', correct: false }
+      ]
+    },
+    {
+      audio: 'audio/fish.mp3',
+      options: [
+        { text: 'Fish', correct: true },
+        { text: 'Dish', correct: false },
+        { text: 'Wish', correct: false }
+      ]
+    },
+    {
+      audio: 'audio/thin.mp3',
+      options: [
+        { text: 'Thin', correct: true },
+        { text: 'Tin', correct: false },
+        { text: 'Win', correct: false }
+      ]
+    },
+    {
+      audio: 'audio/father.mp3',
+      options: [
+        { text: 'Father', correct: true },
+        { text: 'Mother', correct: false },
+        { text: 'Brother', correct: false }
+      ]
+    },
+    {
+      audio: 'audio/fun.mp3',
+      options: [
+        { text: 'Fun', correct: true },
+        { text: 'Run', correct: false },
+        { text: 'Sun', correct: false }
+      ]
+    },
+    {
+      audio: 'audio/think.mp3',
+      options: [
+        { text: 'Think', correct: true },
+        { text: 'Sink', correct: false },
+        { text: 'Link', correct: false }
+      ]
+    },
+    {
+      audio: 'audio/nail.mp3',
+      options: [
+        { text: 'Nail', correct: true },
+        { text: 'Fail', correct: false },
+        { text: 'Sale', correct: false }
+      ]
+    },
+    {
+      audio: 'audio/four.mp3',
+      options: [
+        { text: 'Four', correct: true },
+        { text: 'Floor', correct: false },
+        { text: 'Core', correct: false }
+      ]
+    }
+  ];
+
+  let currentQuestionIndex = 0;
+  let score = 0;
+
+  function startLevelTest() {
+    document.getElementById('start-test-button').classList.add('hidden');
+    document.getElementById('questions-container').classList.remove('hidden');
+    loadQuestion(currentQuestionIndex);
+  }
+
+  function loadQuestion(index) {
+    const questionContainer = document.getElementById('questions-container');
+    questionContainer.innerHTML = ''; // 이전 질문 초기화
+
+    if (index < questions.length) {
+      const question = questions[index];
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('question');
+
+      const audio = document.createElement('audio');
+      audio.controls = true;
+      audio.innerHTML = `<source src="${question.audio}" type="audio/mpeg"> Your browser does not support the audio element.`;
+      questionDiv.appendChild(audio);
+
+      const optionsDiv = document.createElement('div');
+      optionsDiv.classList.add('options');
+
+      question.options.forEach(option => {
+        const optionDiv = document.createElement('div');
+        optionDiv.classList.add('option');
+        optionDiv.textContent = option.text;
+        optionDiv.onclick = () => checkAnswer(optionDiv, option.correct);
+        optionsDiv.appendChild(optionDiv);
+      });
+
+      questionDiv.appendChild(optionsDiv);
+      questionContainer.appendChild(questionDiv);
+      questionDiv.style.display = 'block'; // 질문 표시
+    } else {
+      showFeedback();
+    }
+  }
+
+  function checkAnswer(selectedOption, isCorrect) {
+    const feedbackDiv = document.createElement('div');
+    feedbackDiv.classList.add('feedback');
+
+    if (isCorrect) {
+      score++;
+      feedbackDiv.textContent = "Correct!";
+      feedbackDiv.classList.add('correct');
+    } else {
+      feedbackDiv.textContent = "Incorrect. Please try again!";
+      feedbackDiv.classList.add('incorrect');
+    }
+
+    selectedOption.parentNode.appendChild(feedbackDiv);
+    currentQuestionIndex++;
+    setTimeout(() => {
+      loadQuestion(currentQuestionIndex);
+    }, 1000); // 1초 후 다음 질문 로드
+  }
+
+  function showFeedback() {
+    document.getElementById('questions-container').classList.add('hidden');
+    const feedback = document.getElementById('level-feedback');
+    feedback.classList.remove('hidden');
+
+    let level = '';
+    if (score <= 3) {
+      level = "Level 1: Beginner. Keep practicing basic sounds.";
+    } else if (score <= 6) {
+      level = "Level 2: Intermediate. You are improving! Focus on more complex sounds.";
+    } else {
+      level = "Level 3: Advanced. Great job! Consider practicing with native speakers.";
+    }
+    feedback.textContent = `Your score: ${score} / ${questions.length}. ${level}`;
+    document.getElementById('navigation-buttons').classList.remove('hidden');
+  }
+
+  function startWordStudy() {
+    alert('Word study feature is coming soon!');
+  }
+
+  function goHome() {
+    alert('Returning to the homepage...');
+  }
+</script>
+</body>
+</html>

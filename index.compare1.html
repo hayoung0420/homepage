@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D vs TH Pronunciation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <style>
+        .zen-kaku-gothic-new-regular {
+            font-family: "Zen Kaku Gothic New", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+            
+        body {
+            font-family:"Zen Kaku Gothic New", sans-serif;
+            background-color: #f3f6fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #ffcc99;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            color: #4d3300;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 40px;
+        }
+
+        .video-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30%;
+        }
+
+        .video-section h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .video-section video {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .video-section video:hover {
+            transform: scale(1.05);
+        }
+
+        .comparison-text {
+            background-color: #e6f7ff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 35%;
+            text-align: center;
+            position: relative;
+        }
+
+        .comparison-text::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background-color: #80bfff;
+            border-radius: 3px;
+        }
+
+        .comparison-text h3 {
+            color: #4da6ff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .comparison-text p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .comparison-text ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .comparison-text ul li {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .comparison-text ul li::before {
+            content: '✓';
+            color: #4da6ff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .next-button {
+            background-color: #4da6ff;
+            color: white;
+            padding: 12px 30px;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .next-button:hover {
+            background-color: #3385cc;
+        }
+
+        /* Home Button Styles */
+        .home-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #ffcc99;
+            color: #4d3300;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .home-button:hover {
+            background-color: #ff9966;
+        }
+
+        /* Japanese Translation Button */
+        .translate-button {
+            background-color: #80bfff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .translate-button:hover {
+            background-color: #66a3ff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        An Easily Mispronounced Pronunciation: D vs TH
+    </div>
+
+    <div class="container">
+        <!-- Video section for D sound -->
+        <div class="video-section">
+            <h2>/d/ Pronunciation</h2>
+            <video controls>
+                <source src="d-pronunciation-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Video section for TH sound -->
+        <div class="video-section">
+            <h2>/ð/ Pronunciation</h2>
+            <video controls>
+                <source src="th-pronunciation-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Comparison Text section -->
+        <div class="comparison-text">
+            <h3>Voiced vs Voiceless Sounds: D vs TH</h3>
+            <p>The /ð/ sound in English has two types: voiced and voiceless!</p>
+            <ul>
+                <li>Voiced sounds like /ð/ require a vibration of the vocal cords.</li>
+                <li>Voiceless sounds like /θ/ do not have vibration of the vocal cords.</li>
+            </ul>
+            <p>For example, the word "that" has a voiced sound, while "thing" uses a voiceless sound.</p>
+            <h3>Tips for Practicing</h3>
+            <p>Follow these steps to improve your pronunciation:</p>
+            <ul>
+                <li>Put your tongue just a little bit between your teeth.</li>
+                <li>Pronounce the /ð/ sound by vibrating your vocal cords.</li>
+                <li>For /θ/, relax your vocal cords and do not vibrate.</li>
+            </ul>
+            <button class="next-button">NEXT</button>
+            <button class="translate-button" onclick="playAudio()">日本語で聞く</button>
+        </div>
+    </div>
+
+    <!-- Home Button -->
+    <button class="home-button" onclick="location.href='homepage.html'">HOME</button>
+
+    <script>
+        function playAudio() {
+            const text = `英語の音/d/と/ð/は、声を出す音と声を出さない音の二種類があります！声を出す音は声帯が振動します。例えば、「that」は声を出す音ですが、「thing」は声を出さない音です。練習のためのステップは以下の通りです：舌を少しだけ歯の間に入れて、声帯を振動させて/d/の音を発音します。声帯をリラックスさせて、/θ/の音を発音します。`;
+            const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text)}&tl=ja&client=gtx`;
+            const audio = new Audio(url);
+            audio.play();
+        }
+    </script>
+
+</body>
+</html>

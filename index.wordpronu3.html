@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F Sound Words Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <style>
+        .zen-kaku-gothic-new-regular {
+            font-family: "Zen Kaku Gothic New", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+            
+        body {
+            font-family:"Zen Kaku Gothic New", sans-serif;
+            background-color: #EAF2FF; /* 배경색을 더 밝은 파란색으로 변경 */
+            text-align: center;
+            padding: 20px;
+        }
+        .word-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            display: inline-block;
+            width: 250px;
+            text-align: center;
+        }
+        .phoneme-button {
+            background-color: #a3d9c6; /* 버튼 배경색을 더 부드러운 색으로 변경 */
+            color: black; /* 글씨 색을 검정으로 변경 */
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 18px; /* 글씨 크기를 키움 */
+        }
+        .phoneme-button:hover {
+            background-color: #8ac2a4; /* 호버 시 색상 변경 */
+        }
+        .translation {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        /* 버튼 스타일 */
+        .navigation-button {
+            position: fixed;
+            bottom: 20px;
+            background-color: #4CAF50; /* 초록색 배경 */
+            color: white; /* 흰색 글씨 */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .navigation-button:hover {
+            background-color: #45a049; /* 호버 시 더 진한 초록색 */
+        }
+        .home-button {
+            left: 20px; /* 왼쪽 하단에 고정 */
+        }
+        .next-button {
+            right: 20px; /* 오른쪽 하단에 고정 */
+        }
+
+        /* 레벨 버튼 스타일 */
+        .level-button {
+            position: fixed;
+            top: 20px; /* 상단에 고정 */
+            left: 20px; /* 왼쪽에 고정 */
+            background-color: #FFA500; /* 주황색 배경 */
+            color: white; /* 흰색 글씨 */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .level-button:hover {
+            background-color: #FF8C00; /* 호버 시 더 진한 주황색 */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Practice Words with "F" Sound-level3</h1>
+
+    <!-- 레벨 버튼 추가 -->
+    <button class="level-button" onclick="window.location.href='./index.wordpronu.html'">Level 1</button>
+    <button class="level-button" style="top: 70px;" onclick="window.location.href='./index.wordpronu2.html'">Level 2</button>
+
+    <div class="word-card">
+        <h2>Fantastic</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('æ_sound.mp3')">/æ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('n_sound.mp3')">/n/</button>
+        <button class="phoneme-button" onclick="playPhoneme('t_sound.mp3')">/t/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɪk_sound.mp3')">/ɪk/</button>
+        <button class="phoneme-button" onclick="playPhoneme('fantastic_sound.mp3')">Fantastic</button>
+        <div class="translation">
+            <p>English: Extremely good; excellent</p>
+            <p>日本語: 素晴らしい</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Frequently</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('r_sound.mp3')">/r/</button>
+        <button class="phoneme-button" onclick="playPhoneme('iː_sound.mp3')">/iː/</button>
+        <button class="phoneme-button" onclick="playPhoneme('kwənt_sound.mp3')">/kwənt/</button>
+        <button class="phoneme-button" onclick="playPhoneme('li_sound.mp3')">/li/</button>
+        <button class="phoneme-button" onclick="playPhoneme('frequently_sound.mp3')">Frequently</button>
+        <div class="translation">
+            <p>English: Regularly; at frequent intervals</p>
+            <p>日本語: 頻繁に</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Fundamental</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ʌ_sound.mp3')">/ʌ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('n_sound.mp3')">/n/</button>
+        <button class="phoneme-button" onclick="playPhoneme('də_sound.mp3')">/də/</button>
+        <button class="phoneme-button" onclick="playPhoneme('men_sound.mp3')">/men/</button>
+        <button class="phoneme-button" onclick="playPhoneme('təl_sound.mp3')">/təl/</button>
+        <button class="phoneme-button" onclick="playPhoneme('fundamental_sound.mp3')">Fundamental</button>
+        <div class="translation">
+            <p>English: Forming a necessary base or core; essential</p>
+            <p>日本語: 基本的な</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Fulfill</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ʊ_sound.mp3')">/ʊ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('fɪl_sound.mp3')">/fɪl/</button>
+        <button class="phoneme-button" onclick="playPhoneme('fulfill_sound.mp3')">Fulfill</button>
+        <div class="translation">
+            <p>English: To carry out or execute a task or duty</p>
+            <p>日本語: 遂行する</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Formulate</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɔː_sound.mp3')">/ɔː/</button>
+        <button class="phoneme-button" onclick="playPhoneme('m_sound.mp3')">/m/</button>
+        <button class="phoneme-button" onclick="playPhoneme('jʊː_sound.mp3')">/jʊː/</button>
+        <button class="phoneme-button" onclick="playPhoneme('leɪt_sound.mp3')">/leɪt/</button>
+        <button class="phoneme-button" onclick="playPhoneme('formulate_sound.mp3')">Formulate</button>
+        <div class="translation">
+            <p>English: To create or devise a method or plan</p>
+            <p>日本語: 形作る</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Fossil</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɔː_sound.mp3')">/ɔː/</button>
+        <button class="phoneme-button" onclick="playPhoneme('s_sound.mp3')">/s/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɪl_sound.mp3')">/ɪl/</button>
+        <button class="phoneme-button" onclick="playPhoneme('fossil_sound.mp3')">Fossil</button>
+        <div class="translation">
+            <p>English: The remains of a prehistoric organism</p>
+            <p>日本語: 化石</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Festive</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɛ_sound.mp3')">/ɛ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('s_sound.mp3')">/s/</button>
+        <button class="phoneme-button" onclick="playPhoneme('tɪv_sound.mp3')">/tɪv/</button>
+        <button class="phoneme-button" onclick="playPhoneme('festive_sound.mp3')">Festive</button>
+        <div class="translation">
+            <p>English: Having a joyful or celebratory atmosphere</p>
+            <p>日本語: お祭りのような</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Friction</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('r_sound.mp3')">/r/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɪk_sound.mp3')">/ɪk/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ʃən_sound.mp3')">/ʃən/</button>
+        <button class="phoneme-button" onclick="playPhoneme('friction_sound.mp3')">Friction</button>
+        <div class="translation">
+            <p>English: The resistance that one surface or object encounters when moving over another</p>
+            <p>日本語: 摩擦</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Fable</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('eɪ_sound.mp3')">/eɪ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('b_sound.mp3')">/b/</button>
+        <button class="phoneme-button" onclick="playPhoneme('əl_sound.mp3')">/əl/</button>
+        <button class="phoneme-button" onclick="playPhoneme('fable_sound.mp3')">Fable</button>
+        <div class="translation">
+            <p>English: A short story typically with a moral lesson</p>
+            <p>日本語: 寓話</p>
+        </div>
+    </div>
+
+    <button class="navigation-button home-button" onclick="window.location.href='index.consonant.html'">Home</button>
+    <button class="navigation-button next-button" onclick="window.location.href='index.sentencepr.html'">Next</button>
+
+    <script>
+        function playPhoneme(soundFile) {
+            const audio = new Audio(soundFile);
+            audio.play();
+        }
+    </script>
+</body>
+</html>

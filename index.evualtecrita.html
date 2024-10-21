@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Criteria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <style>
+        .zen-kaku-gothic-new-regular {
+            font-family: "Zen Kaku Gothic New", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+            
+        body {
+            font-family:"Zen Kaku Gothic New", sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: left;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #5972ac;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button-container button {
+            width: 45%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Evaluation Criteria</h1>
+    <p><strong>There are two evaluation criteria</strong>: <strong>Good</strong> and <strong>Not Good</strong>.</p>
+    <p>When compared to native speakers' pronunciation, if 60% or more is correct, it is marked as <strong>Good</strong>. Otherwise, it is marked as <strong>Not Good</strong>.</p>
+    <p><strong>Not Good</strong> does not mean your pronunciation is completely wrong, but it might confuse or lead to misinterpretation by foreigners. It's important to review the checkpoints of your pronunciation, and listen carefully to how your pronunciation sounds.</p>
+    <p>In addition, English has <strong>stress</strong> and <strong>accent</strong>, which are not present in Japanese, making it harder for foreigners to understand. But if the stress and accent are similar, it can make it easier for foreigners to comprehend.</p>
+    <p>Stress and accent will also be marked as <strong>Not Good</strong> if they need improvement.</p>
+
+    <!-- 버튼 컨테이너 -->
+    <div class="button-container">
+        <!-- 일본어로 읽어주는 버튼 -->
+        <button id="readInJapanese">日本語で聞くこと</button>
+
+        <!-- Home 버튼 -->
+        <button onclick="location.href='index.consonant.html';">Home</button>
+    </div>
+
+</div>
+
+<script>
+    // 일본어로 읽어주는 기능 (텍스트를 음성으로 변환)
+    const textToRead = `評価基準は二つあります: 「Good」と「Not Good」です。ネイティブの発音と比べて、60％以上が正しければ「Good」と評価され、それ以外は「Not Good」となります。しかし、「Not Good」は発音が完全に間違っているわけではありません。外国人が聞いた時に少し混乱したり、誤解する可能性があることを意味しています。ですから、自分の発音のポイントを確認して、どのように聞こえるかを学ぶことが重要です。さらに、英語にはストレスとアクセントがありますが、これは日本語にはないため、外国人にとって理解しにくいことがあります。しかし、ストレスとアクセントが似ている場合、外国人にとって理解しやすくなることがあります。これらが不十分な場合も「Not Good」として評価されます。`;
+
+    let isSpeaking = false;
+
+    document.getElementById('readInJapanese').addEventListener('click', () => {
+        if (isSpeaking) {
+            // 음성이 재생 중일 때 멈춤
+            speechSynthesis.cancel();
+            isSpeaking = false;
+        } else {
+            // 음성이 재생되지 않았을 때 재생
+            const utterance = new SpeechSynthesisUtterance(textToRead);
+            utterance.lang = 'ja-JP';
+            speechSynthesis.speak(utterance);
+            isSpeaking = true;
+
+            // 음성 재생이 완료되면 다시 false로 설정
+            utterance.onend = () => {
+                isSpeaking = false;
+            };
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L vs R Pronunciation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <style>
+        .zen-kaku-gothic-new-regular {
+            font-family: "Zen Kaku Gothic New", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+            
+        body {
+            font-family:"Zen Kaku Gothic New", sans-serif;
+            background-color: #f3f6fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #ffcc99;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            color: #4d3300;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 40px;
+        }
+
+        .video-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30%;
+        }
+
+        .video-section h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .video-section video {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .video-section video:hover {
+            transform: scale(1.05);
+        }
+
+        .comparison-text {
+            background-color: #e6f7ff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 35%;
+            text-align: center;
+            position: relative;
+        }
+
+        .comparison-text::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background-color: #80bfff;
+            border-radius: 3px;
+        }
+
+        .comparison-text h3 {
+            color: #4da6ff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .comparison-text p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .comparison-text ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .comparison-text ul li {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .comparison-text ul li::before {
+            content: '✓';
+            color: #4da6ff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .next-button {
+            background-color: #4da6ff;
+            color: white;
+            padding: 12px 30px;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .next-button:hover {
+            background-color: #3385cc;
+        }
+
+        /* Home Button Styles */
+        .home-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #ffcc99;
+            color: #4d3300;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .home-button:hover {
+            background-color: #ff9966;
+        }
+        
+        /* Japanese Translation Button */
+        .translate-button {
+            background-color: #80bfff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .translate-button:hover {
+            background-color: #66a3d6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        An Easily Mispronounced Pronunciation: L vs R
+    </div>
+
+    <div class="container">
+        <!-- Video section for L sound -->
+        <div class="video-section">
+            <h2>/l/ Pronunciation</h2>
+            <video controls>
+                <source src="l-pronunciation-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Video section for R sound -->
+        <div class="video-section">
+            <h2>/r/ Pronunciation</h2>
+            <video controls>
+                <source src="r-pronunciation-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Comparison Text section -->
+        <div class="comparison-text">
+            <h3>Voiced vs Voiceless Sounds: L vs R</h3>
+            <p>The /l/ sound in English is a lateral consonant, while the /r/ sound is produced with a different tongue position!</p>
+            <ul>
+                <li>For /l/, the tip of the tongue touches the roof of the mouth.</li>
+                <li>For /r/, the tongue is curled back in the mouth without touching the roof.</li>
+            </ul>
+            <p>For example, the word "light" starts with an /l/, while "right" starts with an /r/ sound.</p>
+            <h3>Tips for Practicing</h3>
+            <p>Follow these steps to improve your pronunciation:</p>
+            <ul>
+                <li>For /l/, practice touching your tongue to the roof of your mouth.</li>
+                <li>For /r/, practice curling your tongue back without touching the roof.</li>
+            </ul>
+            <button class="next-button">NEXT</button>
+            <button class="translate-button" onclick="alert('この説明を音声で聞きます。')">日本語の音声を聞く</button>
+        </div>
+    </div>
+
+    <!-- Home Button -->
+    <button class="home-button" onclick="location.href='homepage.html'">HOME</button>
+
+</body>
+</html>

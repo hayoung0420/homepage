@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F Sound Words Practice-level2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <style>
+        .zen-kaku-gothic-new-regular {
+            font-family: "Zen Kaku Gothic New", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+            
+        body {
+            font-family:"Zen Kaku Gothic New", sans-serif;
+            background-color: #EAF2FF; /* 배경색을 더 밝은 파란색으로 변경 */
+            text-align: center;
+            padding: 20px;
+        }
+        .word-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            display: inline-block;
+            width: 250px;
+            text-align: center;
+        }
+        .phoneme-button {
+            background-color: #a3d9c6; /* 버튼 배경색을 더 부드러운 색으로 변경 */
+            color: black; /* 글씨 색을 검정으로 변경 */
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 18px; /* 글씨 크기를 키움 */
+        }
+        .phoneme-button:hover {
+            background-color: #8ac2a4; /* 호버 시 색상 변경 */
+        }
+        .translation {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        /* 버튼 스타일 */
+        .navigation-button {
+            position: fixed;
+            bottom: 20px;
+            background-color: #4CAF50; /* 초록색 배경 */
+            color: white; /* 흰색 글씨 */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .navigation-button:hover {
+            background-color: #45a049; /* 호버 시 더 진한 초록색 */
+        }
+        .home-button {
+            left: 20px; /* 왼쪽 하단에 고정 */
+        }
+        .next-button {
+            right: 20px; /* 오른쪽 하단에 고정 */
+        }
+
+        /* 레벨 버튼 스타일 */
+        .level-button {
+            position: fixed;
+            top: 20px; /* 상단에 고정 */
+            left: 20px; /* 왼쪽에 고정 */
+            background-color: #FFA500; /* 주황색 배경 */
+            color: white; /* 흰색 글씨 */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .level-button:hover {
+            background-color: #FF8C00; /* 호버 시 더 진한 주황색 */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Practice Words with "F" Sound-Level2</h1>
+
+    <!-- 레벨 버튼 추가 -->
+    <button class="level-button" onclick="window.location.href='./index.wordpronu.html'">Level 1</button>
+    <button class="level-button" style="top: 70px;" onclick="window.location.href='./index.wordpronu3.html'">Level 3</button>
+
+    <div class="word-card">
+        <h2>Fast</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('æ_sound.mp3')">/æ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('s_sound.mp3')">/s/</button>
+        <button class="phoneme-button" onclick="playPhoneme('t_sound.mp3')">/t/</button>
+        <button class="phoneme-button" onclick="playPhoneme('fast_sound.mp3')">Fast</button>
+        <div class="translation">
+            <p>English: Moving or capable of moving at high speed</p>
+            <p>日本語: 速い</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Funny</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ʌ_sound.mp3')">/ʌ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('n_sound.mp3')">/n/</button>
+        <button class="phoneme-button" onclick="playPhoneme('i_sound.mp3')">/i/</button>
+        <button class="phoneme-button" onclick="playPhoneme('funny_sound.mp3')">Funny</button>
+        <div class="translation">
+            <p>English: Causing laughter</p>
+            <p>日本語: おかしい</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Fruit</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('r_sound.mp3')">/r/</button>
+        <button class="phoneme-button" onclick="playPhoneme('u_sound.mp3')">/u/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɪ_sound.mp3')">/ɪ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('t_sound.mp3')">/t/</button>
+        <button class="phoneme-button" onclick="playPhoneme('fruit_sound.mp3')">Fruit</button>
+        <div class="translation">
+            <p>English: The sweet and fleshy product of a tree or plant</p>
+            <p>日本語: 果物</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Factory</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('æ_sound.mp3')">/æ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('k_sound.mp3')">/k/</button>
+        <button class="phoneme-button" onclick="playPhoneme('t_sound.mp3')">/t/</button>
+        <button class="phoneme-button" onclick="playPhoneme('əri_sound.mp3')">/əri/</button>
+        <button class="phoneme-button" onclick="playPhoneme('factory_sound.mp3')">Factory</button>
+        <div class="translation">
+            <p>English: A building for manufacturing goods</p>
+            <p>日本語: 工場</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Future</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('juː_sound.mp3')">/juː/</button>
+        <button class="phoneme-button" onclick="playPhoneme('tʃər_sound.mp3')">/tʃər/</button>
+        <button class="phoneme-button" onclick="playPhoneme('future_sound.mp3')">Future</button>
+        <div class="translation">
+            <p>English: Time that is yet to come</p>
+            <p>日本語: 未来</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Famous</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('eɪ_sound.mp3')">/eɪ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('m_sound.mp3')">/m/</button>
+        <button class="phoneme-button" onclick="playPhoneme('əs_sound.mp3')">/əs/</button>
+        <button class="phoneme-button" onclick="playPhoneme('famous_sound.mp3')">Famous</button>
+        <div class="translation">
+            <p>English: Known about by many people</p>
+            <p>日本語: 有名な</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Freedom</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('riː_sound.mp3')">/riː/</button>
+        <button class="phoneme-button" onclick="playPhoneme('dəm_sound.mp3')">/dəm/</button>
+        <button class="phoneme-button" onclick="playPhoneme('freedom_sound.mp3')">Freedom</button>
+        <div class="translation">
+            <p>English: The state of not being imprisoned or enslaved</p>
+            <p>日本語: 自由</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Forecast</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɔː_sound.mp3')">/ɔː/</button>
+        <button class="phoneme-button" onclick="playPhoneme('k_sound.mp3')">/k/</button>
+        <button class="phoneme-button" onclick="playPhoneme('æ_sound.mp3')">/æ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('st_sound.mp3')">/st/</button>
+        <button class="phoneme-button" onclick="playPhoneme('forecast_sound.mp3')">Forecast</button>
+        <div class="translation">
+            <p>English: A prediction or estimate of future events</p>
+            <p>日本語: 予報</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Furnish</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɜː_sound.mp3')">/ɜː/</button>
+        <button class="phoneme-button" onclick="playPhoneme('n_sound.mp3')">/n/</button>
+        <button class="phoneme-button" onclick="playPhoneme('ɪʃ_sound.mp3')">/ɪʃ/</button>
+        <button class="phoneme-button" onclick="playPhoneme('furnish_sound.mp3')">Furnish</button>
+        <div class="translation">
+            <p>English: To supply a place with furniture</p>
+            <p>日本語: 備え付ける</p>
+        </div>
+    </div>
+
+    <div class="word-card">
+        <h2>Feature</h2>
+        <button class="phoneme-button" onclick="playPhoneme('f_sound.mp3')">/f/</button>
+        <button class="phoneme-button" onclick="playPhoneme('iː_sound.mp3')">/iː/</button>
+        <button class="phoneme-button" onclick="playPhoneme('tʃər_sound.mp3')">/tʃər/</button>
+        <button class="phoneme-button" onclick="playPhoneme('feature_sound.mp3')">Feature</button>
+        <div class="translation">
+            <p>English: A distinctive attribute or aspect</p>
+            <p>日本語: 特徴</p>
+        </div>
+    </div>
+
+    <button class="navigation-button home-button" onclick="window.location.href='index.consonant.html'">Home</button>
+    <button class="navigation-button next-button" onclick="window.location.href='index.sentencepr.html'">Next</button>
+
+    <script>
+        function playPhoneme(soundFile) {
+            var audio = new Audio(soundFile);
+            audio.play();
+        }
+    </script>
+</body>
+</html>
